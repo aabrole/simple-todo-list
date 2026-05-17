@@ -1,4 +1,6 @@
 const STORAGE_KEY = "todos";
+const THEME_KEY = "todos-theme";
+const VALID_THEMES = ["light", "dark", "sunset", "sage", "midnight"];
 
 const form = document.getElementById("add-form");
 const input = document.getElementById("task-input");
@@ -7,11 +9,32 @@ const emptyState = document.getElementById("empty-state");
 const counter = document.getElementById("counter");
 const filters = document.getElementById("filters");
 const clearCompletedBtn = document.getElementById("clear-completed");
+const palette = document.getElementById("palette");
 
 let tasks = load();
 let currentFilter = "all";
 
+applyTheme(loadTheme());
 render();
+
+palette.addEventListener("click", (e) => {
+  const btn = e.target.closest("button[data-theme]");
+  if (!btn) return;
+  applyTheme(btn.dataset.theme);
+});
+
+function applyTheme(theme) {
+  if (!VALID_THEMES.includes(theme)) theme = "light";
+  document.body.dataset.theme = theme;
+  localStorage.setItem(THEME_KEY, theme);
+  for (const b of palette.querySelectorAll("button[data-theme]")) {
+    b.classList.toggle("active", b.dataset.theme === theme);
+  }
+}
+
+function loadTheme() {
+  return localStorage.getItem(THEME_KEY) || "light";
+}
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();

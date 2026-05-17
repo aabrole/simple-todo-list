@@ -8,7 +8,18 @@
 </head>
 <body>
   <main class="app">
-    <h1>To-Do</h1>
+    <nav class="palette" id="palette" aria-label="Color theme">
+      <button class="swatch swatch-light" data-theme="light" aria-label="Light theme"></button>
+      <button class="swatch swatch-dark" data-theme="dark" aria-label="Dark theme"></button>
+      <button class="swatch swatch-sunset" data-theme="sunset" aria-label="Sunset theme"></button>
+      <button class="swatch swatch-sage" data-theme="sage" aria-label="Sage theme"></button>
+      <button class="swatch swatch-midnight" data-theme="midnight" aria-label="Midnight theme"></button>
+    </nav>
+
+    <header class="hero">
+      <h1>To-Do.</h1>
+      <p class="tagline">Beautifully simple. Effortlessly done.</p>
+    </header>
 
     <form id="add-form" class="add-bar">
       <input
