@@ -14,12 +14,31 @@
       <button class="swatch swatch-sunset" data-theme="sunset" aria-label="Sunset theme"></button>
       <button class="swatch swatch-sage" data-theme="sage" aria-label="Sage theme"></button>
       <button class="swatch swatch-midnight" data-theme="midnight" aria-label="Midnight theme"></button>
+      <button class="swatch swatch-robinhood" data-theme="robinhood" aria-label="Robinhood theme"></button>
     </nav>
 
     <header class="hero">
       <h1>To-Do.</h1>
       <p class="tagline">Beautifully simple. Effortlessly done.</p>
     </header>
+
+    <section class="stats" id="stats" aria-label="Today's stats">
+      <div class="stat">
+        <span class="stat__label">Completed today</span>
+        <span class="stat__value" id="stat-completed">0</span>
+        <span class="stat__delta stat__delta--up" id="stat-completed-delta">▲ 0</span>
+      </div>
+      <div class="stat">
+        <span class="stat__label">Streak</span>
+        <span class="stat__value" id="stat-streak">0</span>
+        <span class="stat__delta" id="stat-streak-unit">days</span>
+      </div>
+      <div class="stat">
+        <span class="stat__label">Focus time</span>
+        <span class="stat__value" id="stat-focus">0<span class="stat__unit">m</span></span>
+        <span class="stat__delta" id="stat-focus-delta">today</span>
+      </div>
+    </section>
 
     <form id="add-form" class="add-bar">
       <input
@@ -40,7 +59,10 @@
 
     <div id="focus-bar" class="focus-bar" hidden>
       <div class="focus-bar__info">
-        <span class="focus-bar__label">Focusing</span>
+        <span class="focus-bar__label">
+          <span class="focus-bar__pulse"></span>
+          Focusing
+        </span>
         <span id="focus-bar-text" class="focus-bar__text"></span>
       </div>
       <span id="focus-bar-time" class="focus-bar__time">25:00</span>
@@ -56,6 +78,8 @@
       <button id="clear-completed" type="button">Clear completed</button>
     </footer>
   </main>
+
+  <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
 
   <script src="app.js"></script>
 </body>
