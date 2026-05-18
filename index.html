@@ -38,6 +38,15 @@
       <button data-filter="completed">Completed</button>
     </div>
 
+    <div id="focus-bar" class="focus-bar" hidden>
+      <div class="focus-bar__info">
+        <span class="focus-bar__label">Focusing</span>
+        <span id="focus-bar-text" class="focus-bar__text"></span>
+      </div>
+      <span id="focus-bar-time" class="focus-bar__time">25:00</span>
+      <button id="focus-bar-cancel" class="focus-bar__cancel" type="button" aria-label="Cancel focus">×</button>
+    </div>
+
     <ul id="task-list" class="task-list"></ul>
 
     <p id="empty-state" class="empty-state">No tasks yet. Add one above.</p>
